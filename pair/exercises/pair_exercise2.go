@@ -57,11 +57,19 @@ func runNode(url string) {
 	}
 	defer socket.Close()
 
+	done := make(chan (struct{}))
+	go func() {
+		for i := 0; i < 3; i++ {
+			send(socket, fmt.Sprintf("message %d from node %s.", i, node))
+			time.Sleep(1 * time.Second)
+		}
+		close(done)
+	}()
 	for i := 0; i < 3; i++ {
-		send(socket, fmt.Sprintf("message %d from node %s.", i, node))
 		_ = receive(socket)
 		time.Sleep(1 * time.Second)
 	}
+	<-done
 	log.Printf("Node %s: Done.\n", node)
 }
 
