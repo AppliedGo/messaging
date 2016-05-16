@@ -34,6 +34,7 @@ Another scenario: Sometimes you might want to keep separate concerns completely 
 The problem with both scenarios is: How can you make all those separate and maybe even distributed processes talk to each other? Especially, how to do this in an easy and efficient way?
 
 Enter Message Queues.
+<!--more-->
 
 
 Message Queues in a nutshell
