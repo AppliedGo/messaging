@@ -1,4 +1,13 @@
 /*
+<!--
+Copyright (c) 2016 Christoph Berger. Some rights reserved.
+Use of this source code is governed by the BSD (3-Clause)
+License that can be found in the LICENSE.txt file.
+
+This source code may import third-party source code whose
+licenses are provided in the respective license files.
+-->
+
 +++
 name = "MessageQueues"
 title = "Message Queues, or how you can make processes talk to each other"
@@ -10,23 +19,6 @@ email = "chris@appliedgo.com"
 created = "2016-02-04"
 +++
 
-<!--
-Copyright (c) 2016 Christoph Berger. Some rights reserved.
-Use of this source code is governed by the BSD (3-Clause)
-License that can be found in the LICENSE.txt file.
-
-This source code may import third-party source code whose
-licenses are provided in the respective license files.
--->
-
-
-Message Queues, or how to make processes talk to each other
-===========================================================
-
-
-Intro
------
-
 Applications and services often need to be scalable. The user base might grow from 10 to 10,000, or the incoming number of requests might increase by some orders of magnitude. One approach to scaling is to use faster computers. The other one is to use more computers and distribute workload among them.
 
 Another scenario: Sometimes you might want to keep separate concerns completely separated. In other words, every distinct point of functionality shall reside in its own OS process: A database process, a Web server process, a process that implements your business logic, and so forth.
@@ -34,6 +26,7 @@ Another scenario: Sometimes you might want to keep separate concerns completely 
 The problem with both scenarios is: How can you make all those separate and maybe even distributed processes talk to each other? Especially, how to do this in an easy and efficient way?
 
 Enter Message Queues.
+
 <!--more-->
 
 
@@ -160,9 +153,9 @@ So what are we going to implement? In short, we want to have two processes runni
 
 ![PairAnimation](PairAnimation.gif)
 
-You can get the full source code at [github](https://github.com/appliedgo/messaging/pair).
+You can get the full source code at [github](https://github.com/appliedgo/messaging).
 
-Use `go get -d` to ensure that the binary does *not* get installed into your `$GOPATH/bin` directory. Rather, use `go build` to generate a local binary that you then can run as `./pair`.
+Use `go get -d` to ensure that the binary does *not* get installed into your `$GOPATH/bin` directory. Rather, use `go build` to generate a local binary that you then can run as `./messaging`.
 
 ### Installing Mangos
 
@@ -176,10 +169,10 @@ To ensure everything has been installed correctly, you might want to run the tes
 	go test github.com/go-mangos/mangos/test
 
 If everything is ok, we can move forward to creating a sample PAIR implementation.
+
+## Implementing a PAIR example
 */
 
-// ### Implementing a PAIR example
-//
 // First, we import Mangos. Note that you need to explicitly import (a) the Scalability Protocol, and (b) the transport(s) that the protocol shall use.
 //
 // For this example, we import the PAIR protocol and the ipc and tcp transports.
@@ -271,17 +264,18 @@ func runNode(url string) {
 
 // Finally, our main() function only needs to fetch the arguments, store the node number, and run the node code.
 func main() {
-	if len(os.Args) < 2 {
-		log.Fatalf("Usage: %s 0|1 <url>\n", os.Args[0])
+	if len(os.Args) <= 2 {
+		log.Printf("Usage: %s 0|1 <url>\n", os.Args[0])
+	} else {
+		node = os.Args[1]
+		runNode(os.Args[2])
 	}
-	node = os.Args[1]
-	runNode(os.Args[2])
 }
 
 /*
 To run this example, get the code from github:
 
-	go get github.com/usinggo/messaging/pair
+	go get github.com/appliedgo/messaging
 
 Then cd to the pair directory and run:
 
@@ -289,18 +283,18 @@ Then cd to the pair directory and run:
 
 Then open a second terminal and cd to the same directory. In the first terminal, enter
 
-	$ ./pair 0 "tcp://localhost:54545"
+	$ ./messaging 0 "tcp://localhost:54545"
 
 and in the other one, type
 
-	$ ./pair 1 "tcp://localhost:54545"
+	$ ./messaging 1 "tcp://localhost:54545"
 
 (Note that you can pick an arbitrary port number from the "Dynamic" range between 49,151 and 65,535 - they only need to be the same for both processes.)
 
 If you started node 0 first, your output should look like this:
 
 ```
-$ ./pair 0 "tcp://localhost:45454"
+$ ./messaging 0 "tcp://localhost:45454"
 2016/02/04 11:44:55 Node 0 sends message 0 from node 0.
 2016/02/04 11:44:58 Node 0 received message 0 from node 1.
 2016/02/04 11:44:58 Node 0 sends message 1 from node 0.
@@ -313,7 +307,7 @@ $ ./pair 0 "tcp://localhost:45454"
 And node 1 should have procuded something like this:
 
 ```
-$ ./pair 1 "tcp://localhost:45454"
+$ ./messaging 1 "tcp://localhost:45454"
 2016/02/04 11:44:58 Node 1 cannot listen on socket 'tcp://localhost:45454': listen tcp 127.0.0.1:45454: bind: address already in use
 Trying to dial instead
 2016/02/04 11:44:58 Node 1 sends message 0 from node 1.
