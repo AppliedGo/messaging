@@ -12,8 +12,9 @@ licenses are provided in the respective license files.
 name = "MessageQueues"
 title = "Message Queues, or how you can make processes talk to each other"
 date = "2016-03-01"
-categories = ["tutorial"]
-tags = ["Go", "golang", "Messaging", "Message Queue", "nanomsg", "Mangos", "go-mangos", "IPC", "Synchronization"]
+domains = ["Distributed Computing"]
+categories = ["Tutorial"]
+tags = ["Messaging", "Message Queue", "nanomsg", "Mangos"]
 author = "Christoph Berger"
 email = "chris@appliedgo.com"
 created = "2016-02-04"
@@ -151,7 +152,7 @@ Typical use case: To split up a large application into two smaller parts.
 
 So what are we going to implement? In short, we want to have two processes running. One of them listens on a socket, the other one dials that socket. Once they are connected, they exchange a couple of messages.
 
-![PairAnimation](PairAnimation.gif)
+HYPE[PairAnimation](PairAnimation.html)
 
 You can get the full source code at [github](https://github.com/appliedgo/messaging).
 
