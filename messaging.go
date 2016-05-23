@@ -1,11 +1,11 @@
 /*
 <!--
 Copyright (c) 2016 Christoph Berger. Some rights reserved.
-Use of this source code is governed by the BSD (3-Clause)
-License that can be found in the LICENSE.txt file.
+Use of this text is governed by a Creative Commons Attribution Non-Commercial
+Share-Alike License that can be found in the LICENSE.txt file.
 
-This source code may import third-party source code whose
-licenses are provided in the respective license files.
+The source code contained in this file may import third-party source code
+whose licenses are provided in the respective license files.
 -->
 
 +++
