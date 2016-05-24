@@ -9,26 +9,30 @@ whose licenses are provided in the respective license files.
 -->
 
 +++
-name = "MessageQueues"
 title = "Message Queues, or how you can make processes talk to each other"
-date = "2016-03-01"
+date = "2016-05-26"
+publishdate = "2016-05-26"
 domains = ["Distributed Computing"]
 categories = ["Tutorial"]
 tags = ["Messaging", "Message Queue", "nanomsg", "Mangos"]
 author = "Christoph Berger"
 email = "chris@appliedgo.com"
-created = "2016-02-04"
 +++
 
-Applications and services often need to be scalable. The user base might grow from 10 to 10,000, or the incoming number of requests might increase by some orders of magnitude. One approach to scaling is to use faster computers. The other one is to use more computers and distribute workload among them.
-
-Another scenario: Sometimes you might want to keep separate concerns completely separated. In other words, every distinct point of functionality shall reside in its own OS process: A database process, a Web server process, a process that implements your business logic, and so forth.
-
-The problem with both scenarios is: How can you make all those separate and maybe even distributed processes talk to each other? Especially, how to do this in an easy and efficient way?
+Consider two processes that need to exchange commands and data. You want to connect them in a way that is straightforward, efficient, and reliable. How woudl you do that?
 
 Enter Message Queues.
 
 <!--more-->
+
+When Processes need to talk
+---------------------------
+
+Applications and services often need to be scalable. The user base might grow from 10 to 10,000, or the incoming number of requests might increase by some orders of magnitude. One approach to scaling is to use faster computers. The other one is to use more computers and distribute workload among them.
+
+Another scenario: Sometimes you need to keep separate concerns completely separated. In other words, every distinct functionality shall run as a separate OS process: A database, a Web server, a process that implements your business logic, and so forth.
+
+Message Queues help connecting these processes.
 
 
 Message Queues in a nutshell
@@ -47,7 +51,7 @@ nanomsg - the minimalist MQ framework
 In order to look into some examples of inter-process communications, we will use [nanomsg][NMG], a lightweight messaging system that has a couple of benefits:
 
 * nanomsg does not need a broker, nor a server infrastructure. Lightweight as can be.
-* nanomsg is dead-easy to understand and to use. No bloated concepts and over-complicated implementations
+* nanomsg is dead-easy to understand and to use. No bloated concepts and over-complicated implementations.
 * /nanomsg provides a reasonable set of common communication topologies (also called "scalability protocols" in nanomsg terminology) out of the box. No need to reinvent the wheel over and over again.
 * A pure Go client is available (see below).
 * There is a ton of nanomsg implementations for other languages available, too. Want to connect your Go process with some other process written in C++, Java, Python, Rust, Ocaml, Erlang,...? [Here you go!][NDOC]
@@ -72,37 +76,37 @@ These protocols are currently defined:
 
 * Pair
 
-  ![Pair](TopoPair.jpg)
+  ![Pair](TopoPair.png)
 
   Motto: Scale your application by breaking it in two pieces.
 
 * Request-Reply
 
-  ![ReqRep](TopoReqRep.jpg)
+  ![ReqRep](TopoReqRep.png)
 
   Motto: Distribute workload among multiple stateless workers.
 
 * Publisher-Subscriber
 
-  ![PubSub](TopoPubSub.jpg)
+  ![PubSub](TopoPubSub.png)
 
   Motto: Broadcast messages to multiple destinations. Receivers can subscribe to specific topics.
 
 * Pipeline
 
-  ![Pipeline](TopoPipeline.jpg)
+  ![Pipeline](TopoPipeline.png)
 
   Motto: Collect output from multiple nodes of one processing step and distribute it among the nodes of the next processing step.
 
 * Survey
 
-  ![Survey](TopoSurvey.jpg)
+  ![Survey](TopoSurvey.png)
 
   Motto: Broadcast a survey and gather the responses. Wait for the replies for a certain time only.
 
 * Bus
 
-  ![Bus](TopoBus.jpg)
+  ![Bus](TopoBus.png)
 
   Motto: Broadcast messages from any node to all other nodes.
 
@@ -122,7 +126,7 @@ Example:
 
 	tcp://192.168.0.42:45890
 
-![Sockets](Sockets.jpg)
+![Sockets](Sockets.png)
 
 nanomsg provides a couple of transport mechanisms:
 
@@ -152,7 +156,7 @@ Typical use case: To split up a large application into two smaller parts.
 
 So what are we going to implement? In short, we want to have two processes running. One of them listens on a socket, the other one dials that socket. Once they are connected, they exchange a couple of messages.
 
-HYPE[PairAnimation](PairAnimation.html)
+HYPE[PairAnimation](Pair.html)
 
 You can get the full source code at [github](https://github.com/appliedgo/messaging).
 
@@ -326,7 +330,7 @@ Try ipc: instead of tcp:
 
 ## Exercise 2
 
-The loop in run node may seem silly as it serializes sending and receiving for no good reason (other than trying to remain simple).
+The loop in `runNode` may seem silly as it serializes sending and receiving for no good reason (other than trying to remain simple).
 Turn the loop into two goroutines that send and receive independently.
 
 
@@ -334,5 +338,5 @@ What's next?
 ------------
 
 The PAIR protocol is the simplest one of the Scalability Protocols. The more complex ones are, not surprisingly, also the more interesting ones.
-In upcoming articles we will therefore discover more communication patterns and look how we can implement them as Scalability Protocols with Go, Mangos, and nanomsg.
+In the next article we'll explore the PubSub protocol, a common pattern for distributing information from one sender to multiple receivers.
 */
