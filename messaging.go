@@ -10,8 +10,8 @@ whose licenses are provided in the respective license files.
 
 +++
 title = "Message Queues, or how you can make processes talk to each other"
-date = "2016-05-26"
-publishdate = "2016-05-26"
+date = "2016-05-27"
+publishdate = "2016-05-27"
 domains = ["Distributed Computing"]
 categories = ["Tutorial"]
 tags = ["Messaging", "Message Queue", "nanomsg", "Mangos"]
@@ -19,7 +19,7 @@ author = "Christoph Berger"
 email = "chris@appliedgo.com"
 +++
 
-Consider two processes that need to exchange commands and data. You want to connect them in a way that is straightforward, efficient, and reliable. How woudl you do that?
+Consider two processes that need to exchange commands and data. You want to connect them in a way that is straightforward, efficient, and reliable. How would you do that?
 
 Enter Message Queues.
 
