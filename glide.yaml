@@ -1,4 +1,4 @@
-package: github.com/golanglab/messaging
+package: github.com/appliedgo/messaging
 import:
 - package: github.com/go-mangos/mangos
   subpackages:

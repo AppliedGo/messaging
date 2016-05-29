@@ -1,15 +1,10 @@
-hash: 734d71a7af91ddb8452698b72ca199618019c7f2ded8d82c37b17b5f1978b394
-updated: 2016-01-27T08:29:30.323013331+01:00
+hash: a31bb3565b23118ff54847e4d96869046c0654c316a5c94beee2f486b1719aa9
+updated: 2016-05-29T16:19:56.846757586+02:00
 imports:
-- name: github.com/droundy/goopt
-  version: e5c9ab183a102ef3ad2363b04483784258984157
-  repo: https://github.com/droundy/goopt
 - name: github.com/go-mangos/mangos
-  version: af3bc5116943d37bfb5627e51c6f4a015c3abe36
+  version: 705c9ddc0ce53ebb54f84e9453cad7facb0aae49
   subpackages:
   - protocol/pair
   - transport/ipc
   - transport/tcp
-- name: github.com/gorilla/websocket
-  version: 5434f8b69b7f4f4ef0120e04c046cd6ce54ef0dd
 devImports: []
