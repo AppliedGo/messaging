@@ -164,14 +164,16 @@ Use `go get -d` to ensure that the binary does *not* get installed into your `$G
 
 ### Installing Mangos
 
+(Note: If you `go get` the messaging code, Mangos is already included via the `vendor` directory. In this case you do not need to install Mangos separately.)
+
 Installing Mangos is as easy as entering
 
 	go get -u github.com/go-mangos/mangos
 
 on the command line.
-To ensure everything has been installed correctly, you might want to run the tests. For this, cd to your $GOPATH and enter:
+To ensure everything has been installed correctly, you might want to run the tests. For this, enter:
 
-	go test github.com/go-mangos/mangos/test
+	go test $GOPATH/src/github.com/go-mangos/mangos/test
 
 If everything is ok, we can move forward to creating a sample PAIR implementation.
 
@@ -339,4 +341,10 @@ What's next?
 
 The PAIR protocol is the simplest one of the Scalability Protocols. The more complex ones are, not surprisingly, also the more interesting ones.
 In the next article we'll explore the PubSub protocol, a common pattern for distributing information from one sender to multiple receivers.
+
+Updates and errata
+------------------
+2016-05-29 Fixed: Small glitch in the path of `go test`.
+2016-05-29 Updated: Mangos is now in the vendor dir. You can use `go get github.com/appliedgo/messaging` without go-getting Mangos first.
+
 */
