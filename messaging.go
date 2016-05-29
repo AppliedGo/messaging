@@ -344,7 +344,7 @@ In the next article we'll explore the PubSub protocol, a common pattern for dist
 
 Updates and errata
 ------------------
-2016-05-29 Fixed: Small glitch in the path of `go test`.
-2016-05-29 Updated: Mangos is now in the vendor dir. You can use `go get github.com/appliedgo/messaging` without go-getting Mangos first.
+* 2016-05-29 Fixed: Small glitch in the path of `go test`.
+* 2016-05-29 Updated: Mangos is now in the vendor dir. You can use `go get github.com/appliedgo/messaging` without go-getting Mangos first.
 
 */
