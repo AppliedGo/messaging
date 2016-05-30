@@ -52,7 +52,7 @@ In order to look into some examples of inter-process communications, we will use
 
 * nanomsg does not need a broker, nor a server infrastructure. Lightweight as can be.
 * nanomsg is dead-easy to understand and to use. No bloated concepts and over-complicated implementations.
-* /nanomsg provides a reasonable set of common communication topologies (also called "scalability protocols" in nanomsg terminology) out of the box. No need to reinvent the wheel over and over again.
+* nanomsg provides a reasonable set of common communication topologies (also called "scalability protocols" in nanomsg terminology) out of the box. No need to reinvent the wheel over and over again.
 * A pure Go client is available (see below).
 * There is a ton of nanomsg implementations for other languages available, too. Want to connect your Go process with some other process written in C++, Java, Python, Rust, Ocaml, Erlang,...? [Here you go!][NDOC]
 
@@ -346,5 +346,6 @@ Updates and errata
 ------------------
 * 2016-05-29 Fixed: Small glitch in the path of `go test`.
 * 2016-05-29 Updated: Mangos is now in the vendor dir. You can use `go get github.com/appliedgo/messaging` without go-getting Mangos first.
+* 2016-05-30 Fixed: Broken links and a small typo.
 
 */
