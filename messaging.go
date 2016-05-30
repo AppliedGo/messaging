@@ -56,7 +56,7 @@ In order to look into some examples of inter-process communications, we will use
 * A pure Go client is available (see below).
 * There is a ton of nanomsg implementations for other languages available, too. Want to connect your Go process with some other process written in C++, Java, Python, Rust, Ocaml, Erlang,...? [Here you go!][NDOC]
 
-[NDOC]: (http://nanomsg.org/documentation.html)
+[NDOC]: http://nanomsg.org/documentation.html
 
 
 Mangos: nanomsg in pure Go
@@ -64,7 +64,7 @@ Mangos: nanomsg in pure Go
 
 [Mangos][MGS] is a Go implementation of nanomsg. It features an easy and intuitive API, as we will discover later when going through a first example.
 
-[MGS]: (https://github.com/go-mangos/mangos)
+[MGS]: https://github.com/go-mangos/mangos
 
 
 How does nanomsg define communication patterns?
