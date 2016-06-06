@@ -16,7 +16,7 @@ domains = ["Distributed Computing"]
 categories = ["Tutorial"]
 tags = ["Messaging", "Message Queue", "nanomsg", "Mangos"]
 author = "Christoph Berger"
-email = "chris@appliedgo.com"
+email = "chris@appliedgo.net"
 +++
 
 Consider two processes that need to exchange commands and data. You want to connect them in a way that is straightforward, efficient, and reliable. How would you do that?
