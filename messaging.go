@@ -282,8 +282,9 @@ func main() {
 /*
 To run this example, get the code from github:
 
-	go get github.com/appliedgo/messaging
+	go get -d github.com/appliedgo/messaging
 
+(The -d flag prevents Go from installing the binary in your `$GOPATH/bin` directory.)
 Then cd to the pair directory and run:
 
 	go build
@@ -347,5 +348,6 @@ Updates and errata
 * 2016-05-29 Fixed: Small glitch in the path of `go test`.
 * 2016-05-29 Updated: Mangos is now in the vendor dir. You can use `go get github.com/appliedgo/messaging` without go-getting Mangos first.
 * 2016-05-30 Fixed: Broken links and a small typo.
+* 2016-06-13 Fixed: go get was missing the -d flag.
 
 */
