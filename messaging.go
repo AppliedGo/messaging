@@ -14,7 +14,7 @@ date = "2016-05-27"
 publishdate = "2016-05-27"
 domains = ["Distributed Computing"]
 categories = ["Tutorial"]
-tags = ["Messaging", "Message Queue", "nanomsg", "Mangos"]
+tags = ["messaging", "message queue", "nanomsg", "mangos"]
 author = "Christoph Berger"
 email = "chris@appliedgo.net"
 +++
