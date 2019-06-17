@@ -12,8 +12,8 @@ whose licenses are provided in the respective license files.
 title = "Message Queues, or how you can make processes talk to each other"
 date = "2016-05-27"
 publishdate = "2016-05-27"
-domains = ["Distributed Computing"]
-categories = ["Tutorial"]
+categories = ["Distributed Computing"]
+articletypes = ["Tutorial"]
 tags = ["messaging", "message queue", "nanomsg", "mangos"]
 author = "Christoph Berger"
 email = "chris@appliedgo.net"
