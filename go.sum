@@ -1,0 +1,4 @@
+github.com/go-mangos/mangos v1.1.1-0.20160525152327-83e303c317b5 h1:uSY3MauS0ogDesv4rsVgsqjcjpdfktvPBsEkFkoCQ+o=
+github.com/go-mangos/mangos v1.1.1-0.20160525152327-83e303c317b5/go.mod h1:YdIQuRLk16QkCaBzTrcXSxmOvvbzi6UE+JXQonzD/pc=
+github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0Ufc=
+github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
